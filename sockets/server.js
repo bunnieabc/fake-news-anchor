@@ -38,14 +38,26 @@ io.sockets.on('connection',
       socketNum = socketNum + 1;
     // When this user emits, client side: socket.emit('otherevent',some data);
       io.to(socket.id).emit('ct', socketNum);
+      io.to(socket.id).emit('socketName', socket.id);
+
+      socket.on("socketStatus", function(socket_status){
+        console.log("Socket Status: " + socket_status);
+        if(socket_status == 1){
+          socket.broadcast.emit('socketStatus', socket_status); // to another socket
+        }
+        else if(socket_status == 3){
+          socket.broadcast.emit('socketStatus', socket_status); // to another socket
+        }
+        //socket.broadcast.emit('socketStatus', socket_status);
+      })
 
       socket.on('mouse',
-        function(data) {
+        function(mouse_click) {
           // Data comes in as whatever was sent, including objects
-          console.log("Received: 'mouse' " + data.x + " " + data.y);
+          console.log("Received: 'mouse: true?' " + mouse_click);
         
           // Send it to all other clients
-          socket.broadcast.emit('mouse', data);
+          socket.broadcast.emit('mouse', mouse_click);
           
           // This is a way to send to everyone including sender
           // io.sockets.emit('message', "this goes to everyone");
