@@ -70,6 +70,7 @@ function setup() {
       console.log("socketStatus: " + data);
       if(data == 1) {
         $(".startBtn").hide();
+        $(".wrap").removeClass("first-page")
       }
       else if(data == 3){
         countDown(); 
@@ -87,6 +88,7 @@ function setup() {
   })*/
 
   $("body").on("click", ".startBtn", function(){
+    $(".wrap").removeClass("first-page")
     ipad_status = ipad_status +1;
     console.log("start btn click")
     $(".startBtn").hide();

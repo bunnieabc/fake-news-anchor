@@ -21,6 +21,7 @@
         height: 100%;
         width: 100%;
         margin: 0;
+        font-family: Gotham;
       }
       #p5canvas {
         transform: translate(360px, -790px) scale(3);
@@ -109,16 +110,17 @@
         justify-content: center;
       }
       .startBtn {
-        border: 3px solid #fff;
-        padding; 15px 30px;
+        padding: 15px 30px;
         width: 200px;
         height: 90px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #FFF;
+        color: #fff;
         font-size: 30px;
         cursor: pointer;
+        background: #000;
+        border: 3px #fff solid;
       }
 
       .wrap {
@@ -131,6 +133,10 @@
         background-repeat: no-repeat;
         background-position: 200px 0px;
         background-size: 960px;
+      }
+      .first-page{
+        background: url("images/f1.jpg");
+        background-size: cover;
       }
       .tv{
         height: 240px;
@@ -181,11 +187,21 @@
         top: 720px;
         right: 20px;
       }
+      .project-title {
+        width: 100%;
+        font-size: 72px;
+        margin: 0px;
+        color: #fff;
+        text-align: center;
+        text-decoration: underline;
+        font-family: Gotham;
+      }
 
     </style>
   </head>
   <body>
-    <div class="wrap">
+    <div class="wrap first-page">
+      <h2 class="project-title">FAKE NEWS <br>ANCHOR</h2>
       <div class="startBtn">Start</div>
       <div class="news-section">
     </div>
