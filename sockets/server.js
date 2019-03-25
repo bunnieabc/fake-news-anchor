@@ -48,6 +48,9 @@ io.sockets.on('connection',
         else if(socket_status == 3){
           socket.broadcast.emit('socketStatus', socket_status); // to another socket
         }
+        else if(socket_status == 4){
+          socket.broadcast.emit('socketStatus', socket_status); // to another socket
+        }
         //socket.broadcast.emit('socketStatus', socket_status);
       })
 

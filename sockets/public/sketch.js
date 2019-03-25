@@ -32,6 +32,7 @@ function countDown(){
   }, 3500);
   setTimeout(function(){
     subtitleRun();
+    window.scrollTo(0,document.body.scrollHeight);
     teleScroll();
   }, 4500)
 }
@@ -42,8 +43,8 @@ function subtitleRun(){
 }
 
 function teleScroll(){
-   window.scrollBy(0,1);
-    scrolldelay = setTimeout(teleScroll, 20);
+  window.scrollBy(0,-1);
+  scrolldelay = setTimeout(teleScroll, 20);
 }
 
 //$(".news-section").hide();
@@ -73,6 +74,9 @@ function setup() {
       else if(data == 3){
         countDown(); 
       }
+      else if(data == 4){
+        $(".tele-subtitle").remove();
+      }
     }
   );
 
@@ -86,7 +90,7 @@ function setup() {
     ipad_status = ipad_status +1;
     console.log("start btn click")
     $(".startBtn").hide();
-    $(".wrap").append("<div class='instruction'><button id='step1'>Next</button></div>");
+    $(".wrap").append("<div class='instruction'><img src='images/instructions.png' class='instr-img'></img><button class='instr-btn' id='step1'>Next</button></div>");
     socket4.emit("socketStatus", ipad_status);
   })
 
@@ -95,10 +99,16 @@ function setup() {
     socket4.emit('socketStatus', ipad_status);
     if(ipad_status == 2){
       $(".instruction").hide();
-      $(".news-section").append('<div class="news-block">\
+
+      $(".news-section").append('<div class="news-block" id="block1">\
         <div class="news-black-cover"></div>\
-        <div class="news-title">News Piece 1</div>\
-        <div class="news-description">lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum.</div>\
+        <div class="news-title">MTA Unveils New Designated Seating For Commuters Who Look Like They’re About To Snap</div>\
+        <div class="news-description">News from Onion</div>\
+      </div>');
+      $(".news-section").append('<div class="news-block" id="block2">\
+        <div class="news-black-cover"></div>\
+        <div class="news-title">MTA Reveals They Have No Idea Where Voices Speaking To Everyone On Subway Coming From</div>\
+        <div class="news-description">News from Onion</div>\
       </div>');
     }
   })
@@ -107,46 +117,77 @@ function setup() {
     ipad_status = ipad_status + 1;
     socket4.emit('socketStatus', ipad_status);
     if(ipad_status == 3){
-      $(".wrap").css("background-image", "url('images/bg2.png')");
-      $(".news-block").hide();
-      $(".wrap").append("<img src ='images/news/1.jpg' style ='height: 200px; width: 360px; top: 80px; left: 200px;' class='tv'></img>")
-      $(".wrap").append("<img src ='images/TV2.png' style ='height: 280px; width: 420px; top: 50px; left: 170px;' class='tv'></img>")
-      canvas = createCanvas(640, 480, WEBGL);
-      canvas.id('p5canvas');
-      video = createCapture(VIDEO);
-      video.size(640, 480);
-      video.id('p5video');
+      setTimeout(function(){
+        $(".news-block").hide();
+        $(".wrap").append("<div class='countdown'>3</div>")
+        console.log("3")
+      }, 500);
+      setTimeout(function(){
+        $(".countdown").remove();
+        $(".wrap").append("<div class='countdown'>2</div>")
+        console.log("2")
+      }, 1500);
+      setTimeout(function(){
+        $(".countdown").remove();
+        $(".wrap").append("<div class='countdown'>1</div>")
+        console.log("1")
+      }, 2500);
+      setTimeout(function(){
+        $(".countdown").remove();
+        $(".wrap").append("<div class='countdown'>0</div>")
+        console.log("0")
+      }, 3500);
+      setTimeout(function(){
+        $(".countdown").remove();
+        
+        $(".wrap").css("background-image", "url('images/bg2.png')");
 
-        //video.hide();
-        //slider = createSlider(0, 1, 0.5, 0.01);
-        //slider.id('blur-slider');
+        
+        $(".wrap").append("<img src ='images/news/1.jpg' style ='height: 300px; width: 540px; top: 80px; left: 200px;' class='tv'></img>")
+        $(".wrap").append("<img src ='images/TV2.png' style ='height: 420px; width: 630px; top: 50px; left: 170px;' class='tv'></img>")
+        canvas = createCanvas(640, 480, WEBGL);
+        canvas.id('p5canvas');
+        video = createCapture(VIDEO);
+        video.size(640, 480);
+        video.id('p5video');
 
-      var seriously = new Seriously();
+          video.hide();
+          //slider = createSlider(0, 1, 0.5, 0.01);
+          //slider.id('blur-slider');
 
-      var src = seriously.source('#p5video');
-      var target = seriously.target('#p5canvas');
+        var seriously = new Seriously();
 
-      // var blur = seriously.effect('blur');
-      // blur.amount = '#blur-slider';
-      // blur.source = src;
-      // target.source = blur;
+        var src = seriously.source('#p5video');
+        var target = seriously.target('#p5canvas');
 
-      var chroma = seriously.effect('chroma');
-      chroma.source = src;
-      target.source = chroma;
-      var r = 67/ 255;
-      var g = 113 / 255;
-      var b = 112 / 255;
-      chroma.screen = [r,g,b,2];
-      seriously.go();
-      $(".wrap").append("<img src ='images/template.png' class='template' ></img>")
-      $(".wrap").append("<div class='subtitle'>MTA Unveils New Designated Seating For Commuters<br> Who Look Like They’re About To Snap</div>")
+        // var blur = seriously.effect('blur');
+        // blur.amount = '#blur-slider';
+        // blur.source = src;
+        // target.source = blur;
+
+        var chroma = seriously.effect('chroma');
+        chroma.source = src;
+        target.source = chroma;
+        var r = 67/ 255;
+        var g = 113 / 255;
+        var b = 112 / 255;
+        chroma.screen = [r,g,b,2];
+        seriously.go();
+        $(".wrap").append("<img src ='images/template.png' class='template' ></img>")
+        $(".wrap").append("<div class='subtitle'>MTA Unveils New Designated Seating For Commuters<br> Who Look Like They’re About To Snap</div>")
+        $(".wrap").append("<button class='stop-btn'>STOP</button>");
+
+      }, 4500);
+      
     }
     //mouse_click = 1;
     //console.log("why");
     //socket.emit('mouse',mouse_click);
   })
-
+  $(".wrap").on("click", ".stop-btn", function(){
+    ipad_status = ipad_status + 1;
+    socket4.emit('socketStatus', ipad_status);
+  })
 
 
 

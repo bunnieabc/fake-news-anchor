@@ -23,7 +23,7 @@
         margin: 0;
       }
       #p5canvas {
-        transform: translate(200px, -720px) scale(2);
+        transform: translate(360px, -790px) scale(3);
       }
       .news-section{
         display: flex;
@@ -53,22 +53,52 @@
         color: #FFF;
         position: relative;
         overflow: hidden;
+        
+        background-size: cover;
+        cursor: pointer;
+      }
+
+      #block1 {
+        background: url("images/news/1.jpg");
+        background-size: cover;
+      }
+      #block2 {
+        background: url("images/news/2.jpg");
+        background-size: cover;
       }
       .news-title {
         position: relative;
+        font-size: 23px;
+        font-weight: 600;
       }
       .news-description{
         position: relative;
         font-size: 15px;
         color: #FFF;
         font-weight: 300;
+        padding-top: 25px;
       }
       .instruction {
         width: 70%;
         height: 80%;
         margin: 5% 15%;
-        background: #ccc;
         padding: 30px;
+      }
+      .instr-img {
+        width: 880px;
+      }
+      .instr-btn {
+        width: 130px;
+        height: 50px;
+        background: #fff;
+        color: #000;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        /* left: 200px; */
+        position: relative;
+        left: 80%;
       }
       .countdown {
         color: #FFF;
@@ -90,6 +120,7 @@
         font-size: 30px;
         cursor: pointer;
       }
+
       .wrap {
         width: 100%;
         height: 100vh;
@@ -99,17 +130,18 @@
         justify-content: center;
         background-repeat: no-repeat;
         background-position: 200px 0px;
+        background-size: 960px;
       }
       .tv{
-        height: 160px;
-        width: 240px;
+        height: 240px;
+        width: 360px;
         position: absolute;
         top: 50px;
         left: 200px;
       }
       .template{
-        height: 480px;
-        width: 640px;
+        height: 720px;
+        width: 960px;
         top: 0px;
         left: 200px;
         z-index: 100;
@@ -118,18 +150,36 @@
       .subtitle {
         position: absolute;
         z-index: 100;
-        top: 345px;
-        left: 260px;
+        top: 520px;
+        left: 290px;
         font-family: Gotham;
         font-weight: 700;
-        font-size: 20px;
+        font-size: 30px;
         line-height: 1.6em;
       }
       .tele-subtitle {
         color: #FFF;
         font-size: 50px;
         width: 100%;
-        padding: 50px;
+        padding: 250px;
+        transform: scaleX(-1);
+        transform: scaleY(-1);
+        
+      }
+      .stop-btn {
+        width: 130px;
+        height: 50px;
+        background: #fff;
+        color: #000;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        /* left: 200px; */
+        position: absolute;
+        z-index: 100;
+        top: 720px;
+        right: 20px;
       }
 
     </style>
