@@ -70,6 +70,7 @@ function setup() {
       console.log("socketStatus: " + data);
       if(data == 1) {
         $(".startBtn").hide();
+        $(".project-title").hide();
         $(".wrap").removeClass("first-page")
       }
       else if(data == 3){
@@ -92,6 +93,7 @@ function setup() {
     ipad_status = ipad_status +1;
     console.log("start btn click")
     $(".startBtn").hide();
+    $(".project-title").hide();
     $(".wrap").append("<div class='instruction'><img src='images/instructions.png' class='instr-img'></img><button class='instr-btn' id='step1'>Next</button></div>");
     socket4.emit("socketStatus", ipad_status);
   })
