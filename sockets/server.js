@@ -58,10 +58,9 @@ io.sockets.on('connection',
         function(mouse_click) {
           // Data comes in as whatever was sent, including objects
           console.log("Received: 'mouse: true?' " + mouse_click);
-        
+
           // Send it to all other clients
           socket.broadcast.emit('mouse', mouse_click);
-          
           // This is a way to send to everyone including sender
           // io.sockets.emit('message', "this goes to everyone");
 
