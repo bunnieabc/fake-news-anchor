@@ -41,14 +41,14 @@ io.sockets.on('connection',
       io.to(socket.id).emit('socketName', socket.id);
 
       socket.on("socketStatus", function(socket_status){
-        console.log("Socket Status: " + socket_status);
-        if(socket_status == 1){
+        console.log("Socket Status: " + socket_status.status);
+        if(socket_status.status == 1){
           socket.broadcast.emit('socketStatus', socket_status); // to another socket
         }
-        else if(socket_status == 3){
+        else if(socket_status.status == 3){
           socket.broadcast.emit('socketStatus', socket_status); // to another socket
         }
-        else if(socket_status == 4){
+        else if(socket_status.status == 4){
           socket.broadcast.emit('socketStatus', socket_status); // to another socket
         }
         //socket.broadcast.emit('socketStatus', socket_status);

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sockets Example</title>
+    <script
+  src="http://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+    <script type="text/javascript" src="libraries/seriously.js"></script>
+    <script type="text/javascript" src="libraries/effects/seriously.blur.js"></script>
+    <script type="text/javascript" src="libraries/effects/seriously.chroma.js"></script>
+    <script type="text/javascript" src="sketch.js"></script>
+    
+    <style>
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: Gotham;
+        background: black;
+      }
+      .wrap{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        -webkit-justify-content: center;
+                justify-content: center;
+      }
+      .first-line2 {
+        color: #FFF;
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+      }
+      .card-section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 84%;
+        justify-content: space-between;
+      }
+      .card {
+        margin-bottom: 40px;
+      }
+      .card-img {
+        width: 30%;
+        margin: 1.5%;
+        background: #ccc;
+        width: 330px;
+        margin: 1.5%;
+        background: #ccc;
+        height: 220px;
+        background-size: cover;
+      }
+      #card1 {
+        background-image: url('videos/gifs/1.gif')
+      }
+      #card2 {
+        background-image: url('videos/gifs/2.gif')
+      }
+      #card3 {
+        background-image: url('videos/gifs/3.gif')
+      }
+      .user {
+        display: flex;
+        align-items: center;
+      }
+      .description{
+        margin-top: 20px;
+        color: #FFF;
+        font-weight: 200;
+        font-size: 15px;
+      }
+
+      .user-avatar{
+        border-radius: 50px;
+        height: 30px;
+        width: 30px;
+        background: #ccc;
+        background-image: url('images/avatar.png');
+        background-size: cover;
+      }
+      .username{
+        padding-left: 14px;
+      }
+      .first-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .like{
+        display: flex;
+        align-items: center;
+        margin-top: 15px;
+        -webkit-justify-content: center;
+                justify-content: center;
+        border-radius: 4px;
+        padding: 8px 16px;
+        background: rgba(255,255,255,0.26);
+      }
+      .like-icon{
+        width: 20px;
+        height: auto;
+      }
+      .like-desc {
+        padding-left: 14px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="wrap repo">
+      <h2 class="first-line2">Fake News Anchor Repo</h2>
+      <div class="card-section">
+        
+        <div class="card">
+          <div class="card-img" id="card1" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" id="card2" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" id="card3" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" id="card1" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" id="card2" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-img" id="card3" style=""></div>
+          <div class="description">
+            <div class="first-line">
+              <div class="user">
+                <div class="user-avatar"></div>
+                <div class="username">Testing 123</div>
+              </div>
+              <div class="upload-day">03/25/2018</div>
+            </div>
+            <div class="like">
+              <img class="like-icon" src="images/like.png" alt="">
+              <div class="like-desc">Like the video</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
