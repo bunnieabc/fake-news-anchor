@@ -282,9 +282,9 @@ function setup() {
         var chroma = seriously.effect('chroma');
         chroma.source = src;
         target.source = chroma;
-        var r = 67/ 255;
-        var g = 113 / 255;
-        var b = 112 / 255;
+        var r = 100/ 255;
+        var g = 125 / 255;
+        var b = 101 / 255;
         chroma.screen = [r,g,b,2];
         seriously.go();
       }
