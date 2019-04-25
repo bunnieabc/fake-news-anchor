@@ -7,6 +7,9 @@
   src="http://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
@@ -18,11 +21,12 @@
     
     <style>
       body {
-        height: 100%;
+        min-height: 100%;
         width: 100%;
         margin: 0;
-        font-family: Gotham;
+        font-family: Karla;
         background: black;
+        color: #FFF;
       }
       .wrap{
         display: flex;
@@ -111,116 +115,296 @@
         padding-left: 14px;
       }
 
+      /* new style 0424 start */
+      .intro {
+        min-height: 75%;
+        width: 100%;
+        background: #000;
+        background-size: cover;
+        background-image: url("images/f1.jpg");
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-justify-content: center;
+                justify-content: center;
+        padding-bottom: 30px;
+      }
+      .logo-section {
+        display: flex;
+        align-items: center;
+      }
+      .logo {
+        height: 30px;
+        width: 30px;
+        border-radius: 15px;
+        background-image: url("images/avatar.png");
+        margin-right: 20px;
+        background-size: cover;
+      }
+      .black-cover {
+        position: absolute;
+        top: 0px;
+        height: 100%;
+        width: 100%;
+        left: 0px;
+        background: rgba(0,0,0,0.6);
+      }
+      .navbar {
+        display: flex;
+        height: 70px;
+        align-items: center;
+        justify-content: space-between;
+        color: #FFF;
+        padding: 20px 60px;
+        position: relative;
+        font-weight: 600;
+        width: 100%;
+      }
+      .tabs {
+        display: flex;
+        padding-right: 30px;
+      }
+      .tab {
+        padding-left: 20px;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: Montserrat;
+        font-weight: 700;
+      }
+      .project-description {
+        position: relative;
+        margin-top: 30px;
+        width: 100%;
+        display: flex;
+        -webkit-justify-content: center;
+                justify-content: center;
+        text-align: center;
+      }
+      .avatar-img {
+        width: 210px;
+      }
+      .project-details{
+        background: #000;
+        padding: 25px 40px;
+        font-size: 16px;
+        width: 300px;
+        height: auto;
+        text-align: left;
+        font-weight: 300;
+        line-height: 1.6;
+      }
+      .scroll-btn {
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        background: #000;
+        display: flex;
+        -webkit-justify-content: center;
+                justify-content: center;
+        -webkit-align-items: center;
+                align-items: center;
+        position: relative;
+        margin-top: 20px;
+        animation: btn_down 0.8s linear 0s infinite alternate;
+      }
+      .trangle {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 14px 8px 0 8px;
+        border-color: #ffffff transparent transparent transparent;
+      }
+      @keyframes btn_down {
+        from {transform: translateY(0px);}
+        to {transform: translateY(20px);}
+      }
+      .video-section {
+        padding: 5% 5%;
+        display: flex;
+        -webkit-justify-content: center;
+                justify-content: center;
+        flex-wrap: wrap;
+      }
+      .first-line2 {
+        width: 100%;
+      }
+      .card2 {
+        background: #313131;
+        border-radius: 8px;
+        width: 345px;
+        
+        overflow: hidden;
+        margin-bottom: 25px;
+      }
+      iframe {
+        border: 0px;
+      }
+      .gif-preview {
+        width: 345px;
+        
+      }
+
+      .card2-title {
+        font-weight: 600;
+        font-size: 19px;
+      }
+      .card2-uploadtime {
+        font-size: 15px;
+        padding: 8px 0px;
+      }
+      .card2-contents {
+        padding: 15px 24px;
+      }
+      .card2-actions {
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .like-btn {
+        border-radius: 4px;
+        background: #4E4E4E;
+        padding: 5px 8px;
+        width: 65px;
+        text-align: center;
+      }
+      .icon-like {
+        margin-right: 8px;
+      }
+      /* new style 0424 end */
+      
     </style>
   </head>
   <body>
     <div class="wrap repo">
-      <h2 class="first-line2">Fake News Anchor Repo</h2>
-      <div class="card-section">
-        
-        <div class="card">
-          <div class="card-img" id="card1" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
+      <div class="intro">
+        <div class="black-cover"></div>
+        <nav class="navbar">
+          <div class="logo-section">
+            <div class="logo"></div>
+            Fake News Anchor
+          </div>
+          <div class="tabs">
+            <div class="tab">Videos</div>
+            <div class="tab">Thesis</div>
+          </div>
+        </nav>
+        <div class="project-description">
+          <div class="project-avatar">
+            <img class="avatar-img" src="images/avatar2.png" alt="">
+            <h2>FAKE NEWS ANCHOR</h2>
+            <div class="project-details">
+              Fake News Anchor is an installation that enables users to experience the distored reality caused by fake news
             </div>
           </div>
         </div>
-
-        <div class="card">
-          <div class="card-img" id="card2" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
-            </div>
-          </div>
+        <div class="scroll-btn">
+          <div class="trangle"></div>
         </div>
-
-        <div class="card">
-          <div class="card-img" id="card3" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-img" id="card1" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-img" id="card2" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-img" id="card3" style=""></div>
-          <div class="description">
-            <div class="first-line">
-              <div class="user">
-                <div class="user-avatar"></div>
-                <div class="username">Testing 123</div>
-              </div>
-              <div class="upload-day">03/25/2018</div>
-            </div>
-            <div class="like">
-              <img class="like-icon" src="images/like.png" alt="">
-              <div class="like-desc">Like the video</div>
-            </div>
-          </div>
-        </div>
-
       </div>
+
+
+
+
+      <div class="video-section">
+        <h2 class="first-line2">Fake News Anchor Repo</h2>
+        <div class="card-section">
+          <div class="card2">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/cbNt9fq-4T4">
+            </iframe>
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="card2">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/bxbebnFahEc">
+            </iframe>
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card2">
+            <iframe width="360" height="240" src="https://www.youtube.com/embed/bP6w5fvZGms">
+            </iframe>
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card2">
+            <img class="gif-preview" src="videos/gifs/1.gif" alt="">
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card2">
+            <img class="gif-preview" src="videos/gifs/2.gif" alt="">
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card2">
+            <img class="gif-preview" src="videos/gifs/3.gif" alt="">
+            <div class="card2-contents">
+              <div class="card2-title">Fake News Anchor#1</div>
+              <div class="card2-uploadtime">
+                Uploaded at March 20th
+              </div>
+              <div class="card2-actions">
+                <div class="like-btn"><i class="far fa-heart icon-like"></i>Like</div>
+                <div class="like-text">・<span class="like-number">120</span>Likes</div>
+                <div class="view-text">・<span class="number">998</span>Views</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
     </div>
   </body>
