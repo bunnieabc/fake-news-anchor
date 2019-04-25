@@ -157,7 +157,6 @@
         color: #FFF;
         padding: 20px 60px;
         position: relative;
-        font-weight: 600;
         width: 100%;
       }
       .tabs {
@@ -165,7 +164,13 @@
         padding-right: 30px;
       }
       .tab {
-        padding-left: 20px;
+        margin-left: 20px;
+        padding-bottom: 7px;
+        color: #FFF;
+        text-decoration: none;
+      }
+      .tab-active {
+        border-bottom: 2px solid #fff;
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: Montserrat;
@@ -241,7 +246,6 @@
       }
       .gif-preview {
         width: 345px;
-        
       }
 
       .card2-title {
@@ -284,7 +288,7 @@
             Fake News Anchor
           </div>
           <div class="tabs">
-            <div class="tab">Videos</div>
+            <a class="tab tab-active "href="">Videos</a>
             <div class="tab">Thesis</div>
           </div>
         </nav>
